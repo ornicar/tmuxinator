@@ -1,3 +1,5 @@
+_TMUX=$TMUX
+TMUX=
 cd <%= @project_root %>
 tmux start-server
 
@@ -20,7 +22,7 @@ tmux select-window -t <%= @project_name %>:1
 
 fi
 
-if [ -z $TMUX ]; then
+if [ -z $_TMUX ]; then
     tmux -u attach-session -t <%= @project_name %>
 else
     tmux -u switch-client -t <%= @project_name %>
